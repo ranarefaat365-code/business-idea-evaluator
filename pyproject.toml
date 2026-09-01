@@ -1,0 +1,23 @@
+[project]
+name = "business-idea-evaluator"
+version = "0.1.0"
+description = "A human-in-the-loop, parallelized multi-agent system that evaluates startup ideas using LangGraph."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-openai>=0.2.0",
+    "langchain-core>=0.3.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+evaluate-idea = "business_idea_evaluator.main:run"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
