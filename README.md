@@ -1,4 +1,4 @@
-# 🚀 Business Idea Evaluator
+# Business Idea Evaluator
 
 A **human-in-the-loop, parallelized multi-agent system** that helps founders evaluate a startup idea from four professional perspectives at once — built with [LangGraph](https://langchain-ai.github.io/langgraph/).
 
@@ -10,17 +10,17 @@ Instead of taking an idea at face value, the system first **asks clarifying ques
 
 ---
 
-## ✨ What it does
+## What it does
 
 1. **Clarification loop (human-in-the-loop).** A *decider* node inspects the conversation and either asks **one** precise follow-up question or signals `DONE`. The founder's answers are fed back in until the idea is well defined.
 2. **Parallel advisors.** Once enough context is gathered, the graph fans out to four independent advisors that run **simultaneously**:
-   - 📊 **Market Analyst** — market sizing, competitors, target segments, timing
-   - ⚖️ **Legal Advisor** — IP, licensing, compliance (e.g. GDPR), contracts
-   - 🛠️ **Technical Advisor** — feasibility, tech stack, scalability, cost/risk
-   - 🎯 **Strategist Advisor** — launch milestones, positioning, early traction
+   -  **Market Analyst** — market sizing, competitors, target segments, timing
+   -  **Legal Advisor** — IP, licensing, compliance (e.g. GDPR), contracts
+   -  **Technical Advisor** — feasibility, tech stack, scalability, cost/risk
+   -  **Strategist Advisor** — launch milestones, positioning, early traction
 3. **Consolidation.** A *collect & report* node merges the four reports into a single, structured evaluation for the founder.
 
-## 🧠 Concepts demonstrated
+## Concepts demonstrated
 
 | Concept | Where it shows up |
 | --- | --- |
@@ -30,7 +30,7 @@ Instead of taking an idea at face value, the system first **asks clarifying ques
 | **Conditional routing** | `route()` chooses between asking again or fanning out |
 | **Map-reduce style aggregation** | `collect_and_report` waits for all advisors, then reduces |
 
-## 🗺️ Architecture
+##  Architecture
 
 ```mermaid
 graph TD;
@@ -61,7 +61,7 @@ graph TD;
     classDef last fill:#bfb6fc
 ```
 
-## 📦 Project structure
+## Project structure
 
 ```
 business-idea-evaluator/
@@ -80,7 +80,7 @@ business-idea-evaluator/
 └── README.md
 ```
 
-## 🚀 Getting started
+##  Getting started
 
 ### 1. Clone and install
 
@@ -121,7 +121,7 @@ FINAL REPORT
 [consolidated, structured evaluation]
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Set these in `.env` (all optional except the key):
 
@@ -131,14 +131,14 @@ Set these in `.env` (all optional except the key):
 | `MODEL_NAME` | `gpt-4o` | Chat model to use. |
 | `TEMPERATURE` | `0` | Sampling temperature. |
 
-## 🔭 Possible extensions
+##  Possible extensions
 
 - Trace and evaluate runs with **LangSmith**.
-- Add or swap advisor roles (e.g. Finance, UX, Go-to-Market).
+- Add or swap advisor roles ( Finance, UX, Go-to-Market).
 - Build a **meta-advisor** that dynamically generates advisor roles based on the idea.
 - Wrap the graph in a **Streamlit / FastAPI** interface instead of the CLI.
 
-## 📄 License
+##  License
 
 MIT — see [LICENSE](LICENSE).
 
