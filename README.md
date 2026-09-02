@@ -143,5 +143,3 @@ Set these in `.env` (all optional except the key):
 MIT — see [LICENSE](LICENSE).
 
 ---
-
-> Built while working through an AI Agents engineering track, as a hands-on exercise in multi-agent orchestration with LangGraph.
