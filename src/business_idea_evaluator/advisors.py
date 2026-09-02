@@ -1,16 +1,15 @@
 """Specialized advisor nodes.
 
 Each advisor evaluates the business idea from a distinct professional angle.
-They all share the same structure and only differ in their system prompt, so
-they can be generated from a single template and run in parallel.
+They share the same structure and differ only in their prompt, so they can
+run in parallel.
 """
 
-from langchain_core.messages import SystemMessage
+from langchain_core.messages import HumanMessage
 
 from .llm import get_llm
 from .state import State
 
-# Role name -> role-specific instructions injected into the prompt.
 ADVISOR_PROMPTS: dict[str, str] = {
     "Market Analyst": (
         "You are a senior MARKET ANALYST. Evaluate the market potential, "
@@ -41,12 +40,11 @@ ADVISOR_PROMPTS: dict[str, str] = {
 
 
 def _run_advisor(role: str, state: State) -> dict:
-    """Run a single advisor and return its report keyed by role name."""
     prompt = (
         f"{ADVISOR_PROMPTS[role]}\n\n"
         f"Idea / conversation so far:\n{state['messages']}"
     )
-    report = get_llm().invoke([SystemMessage(content=prompt)])
+    report = get_llm().invoke([HumanMessage(content=prompt)])
     return {"advisor_reports": {role: report.content}}
 
 
